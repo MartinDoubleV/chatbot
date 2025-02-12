@@ -6,7 +6,7 @@ import time
 
 # 你的 wechatbot-webhook 服务地址和 token
 WEBHOOK_BASE_URL = "http://localhost:3001"
-WEBHOOK_TOKEN = "x~JaZasFsB4y"
+WEBHOOK_TOKEN = ""
 
 # 发送消息的微信群名称（与你微信里的群名相同）
 GROUP_NAME = "qwer"
@@ -81,14 +81,12 @@ def send_news_to_wechat():
         print(f"发送失败，出现异常: {e}")
 
 
-# ========== 4. 定时任务，设置每天 9 点执行 ==========
-
-schedule.every().day.at("09:00").do(send_news_to_wechat)
-
-# ========== 5. 主循环，阻塞等待定时任务执行 ==========
-
 if __name__ == "__main__":
-    print(">>> 启动自动推送脚本，每天 00:10 发送币圈资讯到微信群 <<<")
+    # 手动测试一次
+    send_news_to_wechat()
+
+    # 然后再启动定时任务
+    schedule.every().day.at("09:00").do(send_news_to_wechat)
     while True:
         schedule.run_pending()
         time.sleep(1)
