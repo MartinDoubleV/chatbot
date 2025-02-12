@@ -6,7 +6,7 @@ import time
 
 # 你的 wechatbot-webhook 服务地址和 token
 WEBHOOK_BASE_URL = "http://localhost:3001"
-WEBHOOK_TOKEN = ""
+WEBHOOK_TOKEN = "x~JaZasFsB4y"
 
 # 发送消息的微信群名称（与你微信里的群名相同）
 GROUP_NAME = "qwer"
